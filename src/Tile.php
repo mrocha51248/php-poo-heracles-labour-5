@@ -4,7 +4,7 @@ namespace App;
 
 use App\Mappable;
 
-class Tile implements Mappable
+abstract class Tile implements Mappable
 {
     private int $x;
     private int $y;
