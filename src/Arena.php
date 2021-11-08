@@ -59,7 +59,7 @@ class Arena
         }
 
         $tile = $this->getTile($destinationX, $destinationY);
-        if ($tile && !$tile->isCrossable()) {
+        if ($tile && !$tile->isCrossable($movable)) {
             throw new Exception('Not crossable');
         }
 
