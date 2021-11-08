@@ -25,13 +25,11 @@ class Tile implements Mappable
      *
      * @param int $x
      *
-     * @return self
+     * @return void
      */
-    public function setX(int $x): self
+    public function setX(int $x): void
     {
         $this->x = $x;
-
-        return $this;
     }
 
     /**
@@ -49,13 +47,11 @@ class Tile implements Mappable
      *
      * @param int $y
      *
-     * @return self
+     * @return void
      */
-    public function setY(int $y): self
+    public function setY(int $y): void
     {
         $this->y = $y;
-
-        return $this;
     }
 
     /**
@@ -65,7 +61,7 @@ class Tile implements Mappable
      */
     public function getImage(): string
     {
-        return $this->image;
+        return 'assets/images/' . $this->image;
     }
 
     /**
@@ -73,12 +69,10 @@ class Tile implements Mappable
      *
      * @param string $image
      *
-     * @return self
+     * @return void
      */
-    public function setImage(string $image): self
+    public function setImage(string $image): void
     {
         $this->image = $image;
-
-        return $this;
     }
 }
