@@ -10,6 +10,13 @@ class Tile implements Mappable
     private int $y;
     private string $image;
 
+    public function __construct(int $x, int $y, string $image = "")
+    {
+        $this->setX($x);
+        $this->setY($y);
+        $this->setImage($image);
+    }
+
     /**
      * Get the value of x
      *
