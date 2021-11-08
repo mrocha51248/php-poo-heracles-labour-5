@@ -47,6 +47,11 @@ class Arena
             }
         }
 
+        $tile = $this->getTile($destinationX, $destinationY);
+        if ($tile && !$tile->isCrossable()) {
+            throw new Exception('Not crossable');
+        }
+
         $fighter->setX($destinationX);
         $fighter->setY($destinationY);
     }
