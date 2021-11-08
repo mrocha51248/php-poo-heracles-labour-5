@@ -9,7 +9,7 @@ abstract class Tile implements Mappable
     private int $x;
     private int $y;
     private string $image;
-    private bool $crossable;
+    private bool $crossable = true;
 
     public function __construct(int $x, int $y, string $image = "")
     {
