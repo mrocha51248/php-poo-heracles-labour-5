@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Movable;
 use Exception;
 
 class Arena
@@ -26,10 +27,20 @@ class Arena
         $this->tiles = $tiles;
     }
 
-    public function move(Fighter $fighter, string $direction)
+    public function arenaMove(string $destination): void
     {
-        $x = $fighter->getX();
-        $y = $fighter->getY();
+        $this->move($this->getHero(), $destination);
+        foreach ($this->getMonsters() as $monster) {
+            if ($monster instanceof Movable) {
+                $this->move($monster, array_rand(self::DIRECTIONS));
+            }
+        }
+    }
+
+    public function move(Movable $movable, string $direction)
+    {
+        $x = $movable->getX();
+        $y = $movable->getY();
         if (!key_exists($direction, self::DIRECTIONS)) {
             throw new Exception('Unknown direction');
         }
@@ -52,8 +63,8 @@ class Arena
             throw new Exception('Not crossable');
         }
 
-        $fighter->setX($destinationX);
-        $fighter->setY($destinationY);
+        $movable->setX($destinationX);
+        $movable->setY($destinationY);
     }
 
     public function getDistance(Fighter $startFighter, Fighter $endFighter): float
