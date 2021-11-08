@@ -15,13 +15,15 @@ class Arena
 
     private array $monsters;
     private Hero $hero;
+    private array $tiles;
 
     private int $size = 10;
 
-    public function __construct(Hero $hero, array $monsters)
+    public function __construct(Hero $hero, array $monsters, array $tiles = [])
     {
         $this->hero = $hero;
         $this->monsters = $monsters;
+        $this->tiles = $tiles;
     }
 
     public function move(Fighter $fighter, string $direction)
@@ -121,5 +123,29 @@ class Arena
     public function getSize(): int
     {
         return $this->size;
+    }
+
+    /**
+     * Get the value of tiles
+     *
+     * @return array
+     */
+    public function getTiles(): array
+    {
+        return $this->tiles;
+    }
+
+    /**
+     * Set the value of tiles
+     *
+     * @param array $tiles
+     *
+     * @return self
+     */
+    public function setTiles(array $tiles): self
+    {
+        $this->tiles = $tiles;
+
+        return $this;
     }
 }
