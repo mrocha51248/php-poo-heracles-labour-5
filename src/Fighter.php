@@ -62,7 +62,7 @@ abstract class Fighter implements Mappable
     /**
      * Get the value of image
      */
-    public function setImage(string $image)
+    public function setImage(string $image): void
     {
         $this->image = $image;
     }
