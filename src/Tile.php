@@ -9,6 +9,7 @@ abstract class Tile implements Mappable
     private int $x;
     private int $y;
     private string $image;
+    private bool $crossable;
 
     public function __construct(int $x, int $y, string $image = "")
     {
@@ -81,5 +82,29 @@ abstract class Tile implements Mappable
     public function setImage(string $image): void
     {
         $this->image = $image;
+    }
+
+    /**
+     * Get the value of crossable
+     *
+     * @return bool
+     */
+    public function isCrossable(): bool
+    {
+        return $this->crossable;
+    }
+
+    /**
+     * Set the value of crossable
+     *
+     * @param bool $crossable
+     *
+     * @return self
+     */
+    public function setCrossable(bool $crossable): self
+    {
+        $this->crossable = $crossable;
+
+        return $this;
     }
 }
