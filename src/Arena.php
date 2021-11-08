@@ -84,6 +84,16 @@ class Arena
         return $this->getDistance($attacker, $defenser) <= $attacker->getRange();
     }
 
+    public function getTile(int $x, int $y): ?Tile
+    {
+        foreach ($this->getTiles() as $tile) {
+            if ($tile->getX() === $x && $tile->getY() === $y) {
+                return $tile;
+            }
+        }
+        return null;
+    }
+
     /**
      * Get the value of monsters
      */
